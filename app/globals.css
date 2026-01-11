@@ -1,26 +1,219 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Lexend', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Luua Brand Theme - Gold Primary (darkened for contrast) */
+:root {
+  --radius: 0.75rem;
+
+  /* Clean white background */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+
+  /* Cards - pure white */
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+
+  /* Primary - Luua Gold (darkened) */
+  --primary: #f0c505;
+  --primary-foreground: #000000;
+
+  /* Secondary - Light gold tint */
+  --secondary: #faf6e8;
+  --secondary-foreground: #0a0a0a;
+
+  /* Muted - Neutral grays */
+  --muted: #f5f5f5;
+  --muted-foreground: #525252;
+
+  /* Accent - Light gold */
+  --accent: #faf6e8;
+  --accent-foreground: #0a0a0a;
+
+  /* Destructive */
+  --destructive: #dc2626;
+
+  /* Borders and inputs */
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #f0c505;
+
+  /* Chart colors */
+  --chart-1: #f0c505;
+  --chart-2: #10b981;
+  --chart-3: #3b82f6;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
+
+  /* Success - Green */
+  --success: #04ac05;
+  --success-foreground: #ffffff;
+
+  /* Warning - Amber */
+  --warning: #f59e0b;
+  --warning-foreground: #000000;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+
+  --card: #141414;
+  --card-foreground: #fafafa;
+
+  --popover: #141414;
+  --popover-foreground: #fafafa;
+
+  --primary: #d4aa00;
+  --primary-foreground: #000000;
+
+  --secondary: #1f1f1f;
+  --secondary-foreground: #fafafa;
+
+  --muted: #1f1f1f;
+  --muted-foreground: #a0a0a0;
+
+  --accent: #1a1708;
+  --accent-foreground: #fafafa;
+
+  --destructive: #ef4444;
+
+  --border: #262626;
+  --input: #262626;
+  --ring: #d4aa00;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Display headings use Lexend */
+  h1, h2, h3 {
+    font-family: 'Lexend', system-ui, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Subtle background pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, #e7e7e7 1px, transparent 1px),
+    linear-gradient(to bottom, #e7e7e7 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Gradient mesh - Luua gold style */
+.gradient-mesh {
+  background:
+    radial-gradient(at 0% 0%, rgba(240, 197, 5, 0.08) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(240, 197, 5, 0.04) 0%, transparent 50%),
+    #ffffff;
+}
+
+/* Gold accent background */
+.bg-gold {
+  background-color: #fef9e7;
+}
+
+/* Tactile card style */
+.card-tactile {
+  @apply bg-card border border-border rounded-xl;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-tactile:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Focus ring style */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color - Gold */
+::selection {
+  background: rgba(240, 197, 5, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d;
 }
