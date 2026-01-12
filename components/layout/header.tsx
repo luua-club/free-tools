@@ -143,7 +143,9 @@ export function Header() {
             ))}
             <div className="mt-3 border-t border-border pt-4">
               <Button asChild className="w-full rounded-xl bg-primary">
-                <a href={siteConfig.mainAppUrl}>Try Luua Free</a>
+                <a href="https://luua.club" target="_blank">
+                  Try Luua Free
+                </a>
               </Button>
             </div>
           </nav>
