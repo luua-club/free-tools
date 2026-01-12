@@ -1,15 +1,15 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
-import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { siteConfig, toolsConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+import { siteConfig, toolsConfig } from '@/config/site'
 
 export function Header() {
   const pathname = usePathname()
@@ -87,7 +87,7 @@ export function Header() {
               size="sm"
               className="hidden rounded-xl bg-primary font-medium text-white hover:bg-primary/90 sm:inline-flex"
             >
-              <a href={siteConfig.mainAppUrl}>
+              <a href="https://luua.club" target="_blank">
                 Try Luua Free
                 <ArrowUpRight className="ml-1.5 h-4 w-4" />
               </a>

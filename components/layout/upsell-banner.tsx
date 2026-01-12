@@ -1,12 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles, X } from 'lucide-react'
-import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+import { siteConfig } from '@/config/site'
 
 interface UpsellBannerProps {
   variant?: 'inline' | 'floating'
@@ -47,7 +47,11 @@ export function UpsellBanner({
             <p className="flex-1 text-sm font-medium">{message}</p>
 
             <div className="flex items-center gap-2">
-              <Button size="sm" asChild className="bg-primary hover:bg-primary/90">
+              <Button
+                size="sm"
+                asChild
+                className="bg-primary hover:bg-primary/90"
+              >
                 <a href={siteConfig.mainAppUrl}>
                   Try Luua
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -101,7 +105,7 @@ export function UpsellBanner({
           asChild
           className="group w-full bg-primary hover:bg-primary/90 sm:w-auto"
         >
-          <a href={siteConfig.mainAppUrl}>
+          <a href="https://luua.club" target="_blank">
             Try Luua Free
             <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>

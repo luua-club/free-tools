@@ -61,7 +61,8 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href={siteConfig.mainAppUrl}
+                  href="https://luua.club"
+                  target="_blank"
                   className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Luua App
